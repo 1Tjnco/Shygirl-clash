@@ -1,0 +1,174 @@
+# ==========================================
+# Shygirl-Clash v1.0
+# Author: 1Tjnco
+# ==========================================
+
+mixed-port: 7890
+allow-lan: false
+bind-address: "*"
+
+mode: rule
+log-level: info
+
+ipv6: true
+
+unified-delay: true
+tcp-concurrent: true
+find-process-mode: strict
+
+external-controller: 127.0.0.1:9090
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+geodata-mode: true
+geox-url:
+  geoip: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat
+  geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+  mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb
+
+sniffer:
+  enable: true
+
+  sniff:
+    HTTP:
+      ports: [80,8080-8880]
+    TLS:
+      ports: [443,8443]
+
+  force-domain:
+    - "+.v2ex.com"
+
+  skip-domain:
+    - "Mijia Cloud"
+
+dns:
+  enable: true
+
+  ipv6: true
+
+  enhanced-mode: fake-ip
+
+  fake-ip-range: 198.18.0.1/16
+
+  use-hosts: true
+
+  respect-rules: true
+
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+
+  proxy-server-nameserver:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+    proxies:
+
+  - name: 🇹🇼 台湾家宽
+    type: vless
+
+    server: tw.1tjnco2257.online
+    port: 443
+
+    uuid: 7619026b-1410-4c9b-a35e-b0a36ba7db95
+
+    network: tcp
+
+    tls: true
+
+    udp: true
+
+    flow: xtls-rprx-vision
+
+    servername: www.cloudflare.com
+
+    client-fingerprint: chrome
+
+    reality-opts:
+      public-key: P8zntAEAj350fELTOlNe2UMZfakpn3YwdoPhuBLwVxI
+      short-id: 9f3a7c2d5b1e8a90
+      proxy-groups:
+
+  - name: 🚀 默认代理
+    type: select
+
+    proxies:
+      - 🇹🇼 台湾家宽
+      - DIRECT
+
+  - name: 🤖 AI
+    type: select
+
+    proxies:
+      - 🇹🇼 台湾家宽
+      - 🚀 默认代理
+      - DIRECT
+
+  - name: 📱 Telegram
+    type: select
+
+    proxies:
+      - 🇹🇼 台湾家宽
+      - 🚀 默认代理
+
+  - name: 🍎 Apple
+    type: select
+
+    proxies:
+      - DIRECT
+      - 🚀 默认代理
+
+  - name: Ⓜ Microsoft
+    type: select
+
+    proxies:
+      - DIRECT
+      - 🚀 默认代理
+
+  - name: 🎮 Steam
+    type: select
+
+    proxies:
+      - DIRECT
+      - 🚀 默认代理
+
+  - name: 🌍 Global
+    type: select
+
+    proxies:
+      - 🚀 默认代理
+      - 🇹🇼 台湾家宽
+      - DIRECT
+      rules:
+
+# AI
+- GEOSITE,openai,🤖 AI
+- GEOSITE,anthropic,🤖 AI
+- GEOSITE,gemini,🤖 AI
+
+# Telegram
+- GEOSITE,telegram,📱 Telegram
+
+# GitHub
+- GEOSITE,github,🚀 默认代理
+
+# Steam
+- GEOSITE,steam,🎮 Steam
+
+# Apple
+- GEOSITE,apple,🍎 Apple
+
+# Microsoft
+- GEOSITE,microsoft,Ⓜ Microsoft
+
+# 国内
+- GEOSITE,CN,DIRECT
+- GEOIP,CN,DIRECT,no-resolve
+
+# 其他
+- MATCH,🚀 默认代理
