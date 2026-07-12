@@ -1,0 +1,4 @@
+payload:
+
+  - GEOIP,CN
+  - GEOSITE,CN
