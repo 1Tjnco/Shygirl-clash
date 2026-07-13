@@ -23,38 +23,15 @@ profile:
   store-fake-ip: true
 
 geodata-mode: true
-geox-url:
-  geoip: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat
-  geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
-  mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb
 
 sniffer:
   enable: true
 
-  sniff:
-    HTTP:
-      ports: [80,8080-8880]
-    TLS:
-      ports: [443,8443]
-
-  force-domain:
-    - "+.v2ex.com"
-
-  skip-domain:
-    - "Mijia Cloud"
-
 dns:
   enable: true
-
   ipv6: true
-
   enhanced-mode: fake-ip
-
   fake-ip-range: 198.18.0.1/16
-
-  use-hosts: true
-
-  respect-rules: true
 
   default-nameserver:
     - 223.5.5.5
@@ -66,8 +43,7 @@ dns:
 
   proxy-server-nameserver:
     - https://1.1.1.1/dns-query
-    - https://8.8.8.8/dns-query
-    proxies:
+proxies:
 
   - name: 🇹🇼 台湾家宽
     type: vless
@@ -80,7 +56,6 @@ dns:
     network: tcp
 
     tls: true
-
     udp: true
 
     flow: xtls-rprx-vision
@@ -91,84 +66,102 @@ dns:
 
     reality-opts:
       public-key: P8zntAEAj350fELTOlNe2UMZfakpn3YwdoPhuBLwVxI
-      short-id: 9f3a7c2d5b1e8a90
-      proxy-groups:
+      short-id: 9f3a7c2d5b1e8a90    
+proxy-groups:
 
   - name: 🚀 默认代理
     type: select
-
     proxies:
       - 🇹🇼 台湾家宽
       - DIRECT
 
   - name: 🤖 AI
     type: select
-
     proxies:
-      - 🇹🇼 台湾家宽
       - 🚀 默认代理
       - DIRECT
 
   - name: 📱 Telegram
     type: select
-
     proxies:
-      - 🇹🇼 台湾家宽
       - 🚀 默认代理
+      - DIRECT
 
   - name: 🍎 Apple
     type: select
-
     proxies:
       - DIRECT
       - 🚀 默认代理
 
   - name: Ⓜ Microsoft
     type: select
-
     proxies:
       - DIRECT
       - 🚀 默认代理
 
-  - name: 🎮 Steam
+  - name: 🎮 Game
     type: select
-
     proxies:
       - DIRECT
       - 🚀 默认代理
+rule-providers:
 
-  - name: 🌍 Global
-    type: select
+  AI:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/AI.yaml
+    path: ./ruleset/AI.yaml
+    interval: 86400
 
-    proxies:
-      - 🚀 默认代理
-      - 🇹🇼 台湾家宽
-      - DIRECT
-      rules:
+  Apple:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Apple.yaml
+    path: ./ruleset/Apple.yaml
+    interval: 86400
 
-# AI
-- GEOSITE,openai,🤖 AI
-- GEOSITE,anthropic,🤖 AI
-- GEOSITE,gemini,🤖 AI
+  Microsoft:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Microsoft.yaml
+    path: ./ruleset/Microsoft.yaml
+    interval: 86400
 
-# Telegram
-- GEOSITE,telegram,📱 Telegram
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Telegram.yaml
+    path: ./ruleset/Telegram.yaml
+    interval: 86400
 
-# GitHub
-- GEOSITE,github,🚀 默认代理
+  Game:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Game.yaml
+    path: ./ruleset/Game.yaml
+    interval: 86400
 
-# Steam
-- GEOSITE,steam,🎮 Steam
+  Proxy:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Proxy.yaml
+    path: ./ruleset/Proxy.yaml
+    interval: 86400
 
-# Apple
-- GEOSITE,apple,🍎 Apple
+  Direct:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Direct.yaml
+    path: ./ruleset/Direct.yaml
+    interval: 86400      
+rules:
 
-# Microsoft
-- GEOSITE,microsoft,Ⓜ Microsoft
+  - RULE-SET,AI,🤖 AI
+  - RULE-SET,Telegram,📱 Telegram
+  - RULE-SET,Apple,🍎 Apple
+  - RULE-SET,Microsoft,Ⓜ Microsoft
+  - RULE-SET,Game,🎮 Game
+  - RULE-SET,Proxy,🚀 默认代理
+  - RULE-SET,Direct,DIRECT
 
-# 国内
-- GEOSITE,CN,DIRECT
-- GEOIP,CN,DIRECT,no-resolve
-
-# 其他
-- MATCH,🚀 默认代理
+  - MATCH,🚀 默认代理    
