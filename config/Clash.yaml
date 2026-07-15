@@ -62,28 +62,22 @@ dns:
 
 proxies:
 
-  - name: 🇹🇼 台湾家宽
+- name: 🇹🇼 台湾家宽
     type: vless
-    server: tw.1tjnco2257.online
+    server: tw.1tjnco2257.online          # 或直接用 36.234.171.66
     port: 44321
-
     uuid: b2627328-8666-46af-9d20-5edb51dabc15
-    
     network: tcp
-
     tls: true
-    skip-cert-verify: false
+    skip-cert-verify: true
     udp: true
-
-    flow: xtls-rprx-vision
-    
-    servername: www.cloudflare.com
-
+    # flow: xtls-rprx-vision          # ←←← 这行删除或注释掉
+    servername: www.microsoft.com     # 改成这个
     client-fingerprint: chrome
-
     reality-opts:
       public-key: xSU8JOh5NwJTgpN-Qv_ynb4Yqzv_bsc9Ws8ZJbFhGhI
       short-id: 9f3a7c2d5b1e8a90
+      
 proxy-groups:
 
   - name: 🚀 默认代理
