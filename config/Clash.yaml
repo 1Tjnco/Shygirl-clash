@@ -67,8 +67,8 @@ proxies:
     server: tw.1tjnco2257.online
     port: 443
 
-    uuid: 7619026b-1410-4c9b-a35e-b0a36ba7db95
-
+    uuid: b2627328-8666-46af-9d20-5edb51dabc15
+    
     network: tcp
 
     tls: true
@@ -82,8 +82,8 @@ proxies:
     client-fingerprint: chrome
 
     reality-opts:
-      public-key: P8zntAEAj350fELTOlNe2UMZfakpn3YwdoPhuBLwVxI
-      short-id: 9f3a7c2d5b1e8a90    
+      public-key: 8Ht0eM6s3JnQejmA8dTnH86epnjpS_PjsovXUIfsTmg
+      short-id: 9fd82a94e879fe
 proxy-groups:
 
   - name: 🚀 默认代理
