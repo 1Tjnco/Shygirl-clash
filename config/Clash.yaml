@@ -65,7 +65,7 @@ proxies:
 - name: 🇹🇼 台湾家宽
   type: vless
   server: 36.234.171.66  # 建议先用纯IP测试，排除DNS解析问题
-  port: 50023           # 对应NAT外网端口
+  port: 10001         # 对应NAT外网端口
   uuid: b2627328-8666-46af-9d20-5edb51dabc15
   network: tcp           # 对应3X-UI的RAW传输
   udp: true
