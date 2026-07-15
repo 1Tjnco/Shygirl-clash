@@ -70,9 +70,10 @@ dns:
     ipcidr:
       - 240.0.0.0/4
 
-  - name: 🇹🇼 台湾家宽
-    type: vless
 
+proxies:
+
+  - name: 🇹🇼 台湾家宽
     server: 151.242.188.152
     port: 443
 
@@ -95,11 +96,11 @@ dns:
       short-id: 9f3a7c2d5b1e8a90    
 proxy-groups:
 
-- name: 🚀 默认代理
-  type: select
-  proxies:
-    - 🇹🇼 台湾家宽
-    - DIRECT
+  - name: 🚀 默认代理
+    type: select
+    proxies:
+      - 🇹🇼 台湾家宽
+      - DIRECT
 
   - name: 🤖 AI
     type: select
