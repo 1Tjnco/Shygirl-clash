@@ -58,24 +58,13 @@ dns:
     - https://dns.alidns.com/dns-query
 
   proxy-server-nameserver:
-    - https://1.1.1.1/dns-query
-
-  fallback:
-    - https://1.1.1.1/dns-query
     - https://dns.google/dns-query
-
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-      - 240.0.0.0/4
-
 
 proxies:
 
   - name: 🇹🇼 台湾家宽
     type: vless
-    server: 151.242.188.152
+    server: tw.1tjnco2257.online
     port: 443
 
     uuid: 7619026b-1410-4c9b-a35e-b0a36ba7db95
