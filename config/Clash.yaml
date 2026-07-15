@@ -62,7 +62,6 @@ dns:
 
 proxies:
 
-proxies:
 
 - name: 🇹🇼 台湾家宽
   type: vmess
