@@ -74,6 +74,7 @@ dns:
 proxies:
 
   - name: 🇹🇼 台湾家宽
+    type: vless
     server: 151.242.188.152
     port: 443
 
