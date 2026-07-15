@@ -63,20 +63,18 @@ dns:
 proxies:
 
 - name: 🇹🇼 台湾家宽
-    type: vless
-    server: tw.1tjnco2257.online          # 或直接用 36.234.171.66
-    port: 44321
-    uuid: b2627328-8666-46af-9d20-5edb51dabc15
-    network: tcp
-    tls: true
-    skip-cert-verify: true
-    udp: true
-    flow: xtls-rprx-vision          # ←←← 这行删除或注释掉
-    servername: www.microsoft.com     # 改成这个
-    client-fingerprint: chrome
-    reality-opts:
-      public-key: xSU8JOh5NwJTgpN-Qv_ynb4Yqzv_bsc9Ws8ZJbFhGhI
-      short-id: 9f3a7c2d5b1e8a90
+  type: vless
+  server: 36.234.171.66  # 建议先用纯IP测试，排除DNS解析问题
+  port: 44321            # 对应NAT外网端口
+  uuid: b2627328-8666-46af-9d20-5edb51dabc15
+  network: tcp           # 对应3X-UI的RAW传输
+  udp: true
+  # tls: true            # 尝试注释掉这一行，让 reality-opts 接管 TLS
+  servername: www.microsoft.com # 必须与3X-UI Reality设置中的 SNI 一致
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: xSU8JOh5NwJTgpN-Qv_ynb4Yqzv_bsc9Ws8ZJbFhGhI
+    short-id: 9f3a7c2d5b1e8a90
       
 proxy-groups:
 
