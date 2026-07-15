@@ -71,7 +71,7 @@ proxies:
     tls: true
     skip-cert-verify: true
     udp: true
-    # flow: xtls-rprx-vision          # ←←← 这行删除或注释掉
+    flow: xtls-rprx-vision          # ←←← 这行删除或注释掉
     servername: www.microsoft.com     # 改成这个
     client-fingerprint: chrome
     reality-opts:
