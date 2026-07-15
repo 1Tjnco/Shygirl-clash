@@ -13,7 +13,7 @@ log-level: info
 ipv6: true
 
 unified-delay: true
-tcp-concurrent: true
+tcp-concurrent: false
 find-process-mode: strict
 
 external-controller: 127.0.0.1:9090
@@ -64,12 +64,22 @@ dns:
   proxy-server-nameserver:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
+
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+
+  fallback-filter:
+    geoip: true
+    ipcidr:
+      - 240.0.0.0/4
+    
 proxies:
 
   - name: 🇹🇼 台湾家宽
     type: vless
 
-    server: 151.242.188.152
+    server: tw.1tjnco2257.online
     port: 443
 
     uuid: 7619026b-1410-4c9b-a35e-b0a36ba7db95
@@ -81,8 +91,7 @@ proxies:
     udp: true
 
     flow: xtls-rprx-vision
-    packet-encoding: xudp
-
+    
     servername: www.cloudflare.com
 
     client-fingerprint: chrome
@@ -92,22 +101,21 @@ proxies:
       short-id: 9f3a7c2d5b1e8a90    
 proxy-groups:
 
-  - name: 🚀 默认代理
+- name: 🚀 默认代理
+  type: select
+  proxies:
+    - 🇹🇼 台湾家宽
+
+  - name: 🤖 AI
     type: select
     proxies:
       - 🇹🇼 台湾家宽
       - DIRECT
 
-  - name: 🤖 AI
-    type: select
-    proxies:
-      - 🚀 默认代理
-      - DIRECT
-
   - name: 📱 Telegram
     type: select
     proxies:
-      - 🚀 默认代理
+      - 🇹🇼 台湾家宽
       - DIRECT
 
   - name: 🍎 Apple
@@ -128,13 +136,6 @@ proxy-groups:
       - DIRECT
       - 🚀 默认代理
 
-  - name: 🌍 Global
-    type: select
-    proxies:
-      - 🚀 默认代理
-      - DIRECT
-
-  
 rule-providers:
 
   AI:
@@ -195,4 +196,4 @@ rules:
   - RULE-SET,Proxy,🚀 默认代理
   - RULE-SET,Direct,DIRECT
 
-  - MATCH,🌍 Global
+  - MATCH,🚀 默认代理
