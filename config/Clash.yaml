@@ -69,7 +69,7 @@ proxies:
   - name: 🇹🇼 台湾家宽
     type: vless
 
-    server: tw.1tjnco2257.online
+    server: 151.242.188.152
     port: 443
 
     uuid: 7619026b-1410-4c9b-a35e-b0a36ba7db95
