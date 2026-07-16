@@ -82,7 +82,7 @@ proxies:
     flow: xtls-rprx-vision
 
     reality-opts:
-      public-key: 6sylxZ8594D3dWTHMzs-ep6StDra09PkPfRtILInpEI
+      public-key: uPb_MW2RIk_RHTZICFe1jiFgMMQRFQpuvyBdsGDiqz4
       short-id: f77ee868
   
 proxy-groups:
