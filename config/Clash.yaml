@@ -68,22 +68,22 @@ proxies:
     server: tw.1tjnco2257.online
     port: 44321
 
-    uuid: 0a9a4393-cb99-436b-8f01-fbe318d2cb92
+    uuid: 91ce97dc-f9b9-4c24-a094-9756b699a507
 
     network: tcp
 
     tls: true
     udp: true
 
-    servername: www.cloudflare.com
+    servername: www.microsoft.com
     
     client-fingerprint: chrome
 
     flow: xtls-rprx-vision
 
     reality-opts:
-      public-key: uPb_MW2RIk_RHTZICFe1jiFgMMQRFQpuvyBdsGDiqz4
-      short-id: f77ee868
+      public-key: 0n2INZ2YI-IxuspiNOizhr_BtuZWZv3KS6P1poq0Fkc
+      short-id: abb6ac99d31a5321
   
 proxy-groups:
 
