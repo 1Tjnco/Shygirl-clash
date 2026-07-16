@@ -65,13 +65,27 @@ proxies:
 
 - name: 🇹🇼 台湾家宽
   type: vmess
-  server: 36.234.171.66
-  port: 10001
-  uuid: a9d799e7-142d-400a-a795-537980bce52a
-  alterId: 0
-  cipher: auto
+  type: vless
+
+  server: tw.1tjnco2257.online
+
+  port: 44321
+
+  uuid: 0a9a4393-cb99-436b-8f01-fbe318d2cb92
+
   network: tcp
+
+  tls: true
+
   udp: true
+
+  servername: www.cloudflare.com
+
+  flow: xtls-rprx-vision
+
+  reality-opts:
+  public-key: 6sylxZ8594D3dWTHMzs-ep6StDra09PkPfRtILInpEI
+  short-id: f77ee868
   
 proxy-groups:
 
