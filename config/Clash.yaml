@@ -62,30 +62,28 @@ dns:
 
 proxies:
 
+  - name: 🇹🇼 台湾家宽
+    type: vless
 
-- name: 🇹🇼 台湾家宽
-  type: vmess
-  type: vless
+    server: tw.1tjnco2257.online
+    port: 44321
 
-  server: tw.1tjnco2257.online
+    uuid: 0a9a4393-cb99-436b-8f01-fbe318d2cb92
 
-  port: 44321
+    network: tcp
 
-  uuid: 0a9a4393-cb99-436b-8f01-fbe318d2cb92
+    tls: true
+    udp: true
 
-  network: tcp
+    servername: www.cloudflare.com
+    
+    client-fingerprint: chrome
 
-  tls: true
+    flow: xtls-rprx-vision
 
-  udp: true
-
-  servername: www.cloudflare.com
-
-  flow: xtls-rprx-vision
-
-  reality-opts:
-  public-key: 6sylxZ8594D3dWTHMzs-ep6StDra09PkPfRtILInpEI
-  short-id: f77ee868
+    reality-opts:
+      public-key: 6sylxZ8594D3dWTHMzs-ep6StDra09PkPfRtILInpEI
+      short-id: f77ee868
   
 proxy-groups:
 
