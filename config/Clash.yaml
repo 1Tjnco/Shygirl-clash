@@ -1,186 +1,398 @@
 # ==========================================
-# Shygirl-Clash v1.0
+# Shygirl-Clash v1.0 FINAL
 # Author: 1Tjnco
 # ==========================================
 
+
 mixed-port: 7890
-allow-lan: false
+
+allow-lan: true
+
 bind-address: "*"
 
+
 mode: rule
+
 log-level: info
 
-ipv6: true
+
+ipv6: false
+
 
 unified-delay: true
-tcp-concurrent:  true
+
+tcp-concurrent: true
+
 find-process-mode: strict
+
+
 
 external-controller: 127.0.0.1:9090
 
+
+
 profile:
+
   store-selected: true
+
   store-fake-ip: true
-  
+
+
+
 geodata-mode: true
 
+
+
 geox-url:
+
   geoip: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat
+
   geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+
   mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb
 
-sniffer:
-  enable: false
 
-  sniff:
-    HTTP:
-      ports:
-        - 80
-        - 8080-8880
 
-    TLS:
-      ports:
-        - 443
-        - 8443
+
+# =========================
+# DNS
+# =========================
+
 
 dns:
+
   enable: true
+
   ipv6: false
+
 
   enhanced-mode: fake-ip
 
+
   fake-ip-range: 198.18.0.1/16
 
+
   default-nameserver:
+
     - 223.5.5.5
 
+
+
   nameserver:
+
     - https://dns.alidns.com/dns-query
 
-  proxy-server-nameserver:
+
+
+  fallback:
+
     - https://dns.google/dns-query
+
+    - https://cloudflare-dns.com/dns-query
+
+
+
+  fallback-filter:
+
+    geoip: true
+
+    geoip-code: CN
+
+
+
+  proxy-server-nameserver:
+
+    - 223.5.5.5
+
+
+
+
+
+# =========================
+# Proxy
+# =========================
+
 
 proxies:
 
+
   - name: 🇹🇼 台湾家宽
+
     type: vless
 
-    server: tw.1tjnco2257.online
-    port: 44321
 
-    uuid: 91ce97dc-f9b9-4c24-a094-9756b699a507
+    server: tw.1tjnco2257.online
+
+
+    port: 22577
+
+
+    uuid: f9d604b5-6f0e-42a1-935d-87de29475a00
+
 
     network: tcp
 
+
     tls: true
+
     udp: true
 
-    servername: www.microsoft.com
-    
-    client-fingerprint: chrome
 
     flow: xtls-rprx-vision
 
+
+
+    client-fingerprint: chrome
+
+
+
+    servername: www.apple.com
+
+
+
     reality-opts:
-      public-key: 0n2INZ2YI-IxuspiNOizhr_BtuZWZv3KS6P1poq0Fkc
-      short-id: abb6ac99d31a5321
-  
+
+      public-key: hw8AW8-WN63HD8KOOAiGcyHCh9mJuKsOgoX5d-aMQAQ
+
+      short-id: 2b47d3d5
+
+
+
+
+
+# =========================
+# Groups
+# =========================
+
+
 proxy-groups:
 
+
+
   - name: 🚀 默认代理
+
     type: select
+
     proxies:
+
       - 🇹🇼 台湾家宽
+
       - DIRECT
+
+
+
 
   - name: 🤖 AI
+
     type: select
+
     proxies:
+
       - 🇹🇼 台湾家宽
+
       - DIRECT
+
+
+
 
   - name: 📱 Telegram
+
     type: select
+
     proxies:
+
       - 🇹🇼 台湾家宽
+
       - DIRECT
+
+
+
 
   - name: 🍎 Apple
+
     type: select
+
     proxies:
+
       - DIRECT
+
       - 🚀 默认代理
+
+
+
 
   - name: Ⓜ Microsoft
+
     type: select
+
     proxies:
+
       - DIRECT
+
       - 🚀 默认代理
 
+
+
+
   - name: 🎮 Game
+
     type: select
+
     proxies:
+
       - DIRECT
+
       - 🚀 默认代理
+
+
+
+
+
+# =========================
+# Rule Provider
+# =========================
+
 
 rule-providers:
 
+
+
   AI:
+
     type: http
+
     behavior: classical
+
     url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/AI.yaml
+
     path: ./ruleset/AI.yaml
+
     interval: 86400
+
+
+
 
   Apple:
+
     type: http
+
     behavior: classical
+
     url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Apple.yaml
+
     path: ./ruleset/Apple.yaml
+
     interval: 86400
+
+
+
 
   Microsoft:
+
     type: http
+
     behavior: classical
+
     url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Microsoft.yaml
+
     path: ./ruleset/Microsoft.yaml
+
     interval: 86400
+
+
+
 
   Telegram:
+
     type: http
+
     behavior: classical
+
     url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Telegram.yaml
+
     path: ./ruleset/Telegram.yaml
+
     interval: 86400
+
+
+
 
   Game:
+
     type: http
+
     behavior: classical
+
     url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Game.yaml
+
     path: ./ruleset/Game.yaml
+
     interval: 86400
+
+
+
 
   Proxy:
+
     type: http
+
     behavior: classical
+
     url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Proxy.yaml
+
     path: ./ruleset/Proxy.yaml
+
     interval: 86400
 
+
+
+
   Direct:
+
     type: http
+
     behavior: classical
+
     url: https://raw.githubusercontent.com/1Tjnco/Shygirl-clash/main/rules/Direct.yaml
+
     path: ./ruleset/Direct.yaml
-    interval: 86400      
+
+    interval: 86400
+
+
+
+
+
+
+# =========================
+# Rules
+# =========================
+
+
 rules:
 
+
+
   - RULE-SET,AI,🤖 AI
+
+
   - RULE-SET,Telegram,📱 Telegram
+
+
   - RULE-SET,Apple,🍎 Apple
+
+
   - RULE-SET,Microsoft,Ⓜ Microsoft
+
+
   - RULE-SET,Game,🎮 Game
+
+
   - RULE-SET,Proxy,🚀 默认代理
+
+
   - RULE-SET,Direct,DIRECT
+
+
 
   - MATCH,🚀 默认代理
