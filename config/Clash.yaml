@@ -124,10 +124,10 @@ proxies:
     server: tw.1tjnco2257.online
 
 
-    port: 22577
+    port: 52473
 
 
-    uuid: f9d604b5-6f0e-42a1-935d-87de29475a00
+    uuid: 6b523423-18b0-4bd0-9b6e-25d5cf8a822e
 
 
     network: tcp
@@ -152,9 +152,9 @@ proxies:
 
     reality-opts:
 
-      public-key: hw8AW8-WN63HD8KOOAiGcyHCh9mJuKsOgoX5d-aMQAQ
+      public-key: UNkMCocD_ulLlgEKeQ90G2iRRYW-0eZlurQPUda_8wc
 
-      short-id: 2b47d3d5
+      short-id: a0d85b75
 
 
 
