@@ -131,7 +131,7 @@ dns:
 
 proxies:
 
-  - name: 🏠 台湾家宽
+  - name: 🇹🇼 台湾家宽
 
     type: vless
 
