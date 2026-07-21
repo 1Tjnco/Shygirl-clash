@@ -131,38 +131,27 @@ dns:
 
 proxies:
 
-
-  - name: 🇹🇼 台湾家宽
+  - name: 🏠 台湾家宽
 
     type: vless
 
     server: tw.1tjnco2257.online
 
-    port: 10557
-
+    port: 52473
 
     uuid: 56e6e66c-8f31-4a5f-9297-8f3be6d49790
 
-
     network: tcp
-
 
     tls: true
 
     udp: true
 
-
     flow: xtls-rprx-vision
-
 
     client-fingerprint: chrome
 
-
-    skip-cert-verify: false
-
-
     servername: www.cloudflare.com
-
 
     reality-opts:
 
@@ -172,6 +161,34 @@ proxies:
 
 
 
+  - name: 🖥 台湾KVM
+
+    type: vless
+
+    server: 151.242.188.152
+
+    port: 443
+
+    uuid: a7440cd7-7245-470d-b5b8-9d2416f00891
+
+    network: tcp
+
+    tls: true
+
+    udp: true
+
+    flow: xtls-rprx-vision
+
+    client-fingerprint: chrome
+
+    servername: www.cloudflare.com
+
+    reality-opts:
+
+      public-key: 4BGdVshQMSi6OzmieMRpsxlobwhT7uSxQ2wXCDeztGk
+
+      short-id: "7440d98a68252fc4"
+      
 
 # =========================
 # GROUP
