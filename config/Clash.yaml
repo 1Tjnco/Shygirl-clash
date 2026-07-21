@@ -204,7 +204,7 @@ proxy-groups:
     proxies:
 
       - 🇹🇼 台湾家宽
-
+      -🖥 台湾KVM
       - DIRECT
 
 
@@ -216,7 +216,7 @@ proxy-groups:
     proxies:
 
       - 🇹🇼 台湾家宽
-
+      -🖥 台湾KVM
       - DIRECT
 
 
@@ -228,7 +228,7 @@ proxy-groups:
     proxies:
 
       - 🇹🇼 台湾家宽
-
+      -🖥 台湾KVM
       - DIRECT
 
 
@@ -239,9 +239,9 @@ proxy-groups:
 
     proxies:
 
-      - DIRECT
-
       - 🇹🇼 台湾家宽
+      -🖥 台湾KVM
+      - DIRECT
 
 
 
@@ -251,9 +251,9 @@ proxy-groups:
 
     proxies:
 
-      - DIRECT
-
       - 🇹🇼 台湾家宽
+      -🖥 台湾KVM
+      - DIRECT
 
 
 
@@ -267,7 +267,9 @@ proxy-groups:
 
       - 🇹🇼 台湾家宽
 
+      -🖥 台湾KVM
 
+      
 
 
 # =========================
