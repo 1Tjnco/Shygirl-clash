@@ -282,8 +282,6 @@ proxy-groups:
 
     proxies:
 
-      - DIRECT
-
       - 🇹🇼 台湾家宽
 
       - 🇹🇼 台湾KVM
