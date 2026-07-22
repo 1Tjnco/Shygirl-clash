@@ -3,3 +3,4 @@ payload:
   - DOMAIN-SUFFIX,local
   - GEOIP,CN
   - GEOSITE,CN
+  - DOMAIN-SUFFIX,steamcontent.com
