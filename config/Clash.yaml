@@ -222,7 +222,8 @@ proxy-groups:
 
     proxies:
 
-      - 🌐 台湾自动
+      - 🇹🇼 台湾家宽
+      - 🇹🇼 台湾KVM
       - DIRECT
 
 
